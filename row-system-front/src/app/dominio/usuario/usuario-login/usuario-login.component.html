@@ -1,0 +1,43 @@
+<div class="center">
+
+
+
+  <form [formGroup]="usuarioForm" novalidate>
+    <div class="card border-primary bg-transparent mb-3 text-center" style="max-width: 18rem;">
+      <div class="card-header border-primary">Row System </div>
+      <div class="card-body">
+        <h5 class="card-title text-center">Login</h5>
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">Usuário</span>
+              </div>
+              <input [(ngModel)]="usuario.usuario" type="text" class="form-control  " id="usuario" formControlName="usuario" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">Senha</span>
+              </div>
+              <input [(ngModel)]="usuario.senha"  type="password" class="form-control" id="senha" formControlName="senha" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer bg-transparent border-primary smb-3 ">
+        <button type="submit" class="btn btn-default" (click)="login(usuarioForm.value)">LOG IN</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- <pre>{{usuarioForm.value | json}}</pre> -->
+
+
+
+<!-- <input type="date" id="exampleInput" name="input" ng-model="example.value"
+       placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required /> -->

@@ -1,0 +1,32 @@
+<h1>Lista de Contatos</h1>
+
+<button type="button" class="btn btn-primary" id="btn_os" [routerLink]="['/contatops/incluir']">Adicionar Contato</button>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Data</th>
+      <th scope="col">OS</th>
+      <th scope="col">Serviço</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Operações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let contatops of colecoes" ondblclick="selecCoelcao(i)"> -->
+    <tr>
+      <td>00001</td>
+      <td>21/10/2018</td>
+      <td>00001</td>
+      <td>Cortador</td>
+      <td>Paulo</td>
+      <td>
+        <a [routerLink]="['/contatops/visualizar',1]">Visualizar</a> |
+        <a [routerLink]="['/contatops/alterar',1]">Alterar</a> |
+        <a [routerLink]="['/contatops']">Excluir</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-default" id="btn_os" [routerLink]="['/os']">Voltar</button>

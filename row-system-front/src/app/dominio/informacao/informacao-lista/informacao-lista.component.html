@@ -1,0 +1,30 @@
+<h1>Lista Ordens de Serviçoes: Calça Verão</h1>
+
+<button type="button" class="btn btn-primary" id="btn_os" [routerLink]="['/informacao/incluir/1']">Adicionar OS</button>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Servico</th>
+      <th scope="col">Envio</th>
+      <th scope="col">Operações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let informacao of colecoes" ondblclick="selecCoelcao(i)"> -->
+    <tr>
+      <td>00001</td>
+      <td>Corte</td>
+      <td>30/11/2018</td>
+      <td>
+        <a [routerLink]="['/informacao/visualizar']">Visualizar</a> |
+        <a [routerLink]="['/informacao/alterar']">Alterar</a> |
+        <a [routerLink]="['/informacao/devolucao/1']">Devolver</a> |
+        <a [routerLink]="['/informacao']">Excluir</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-default" id="btn_os" [routerLink]="['/os/1']">Voltar</button>

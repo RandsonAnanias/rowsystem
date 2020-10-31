@@ -1,0 +1,18 @@
+
+.logo{
+        width: 50px;
+    }
+
+
+/* MENU HORIZONTAL */
+.menu-horizontal{
+    padding: 5px 0px;
+    border-radius: 10px;
+    /* margin: 0; */
+}
+
+
+/*RODAPE*/
+.rodape p {
+    text-align: center;
+}

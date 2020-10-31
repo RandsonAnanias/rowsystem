@@ -1,0 +1,48 @@
+<div class="container">
+
+  <!-- MENU HORIZONTAL -->
+  <div class="row menu-horizontal">
+
+    <div class="col-12">
+      <nav *ngIf="mostrarMenu" class="navbar navbar-expand-lg  border border-primary bg-transparent rounded">
+        <a class="navbar-brand" href="#"><img class="logo" src="assets/imagens/Rowsys.png" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" [routerLink]="['colecao']">Coleção</a>
+            <a class="nav-item nav-link" [routerLink]="['pessoa']">Pessoa</a>
+            <a class="nav-item nav-link" [routerLink]="['relatorio']">Relatórios</a>
+          </div>
+        </div>
+        <a class="nav-item nav-link" href="#">Entrar/sair</a>
+      </nav>
+    </div>
+
+  </div>
+
+  <!-- MEIO -->
+  <div class="row meio">
+
+    <!-- CONTEUDO -->
+    <div class="col-12">
+
+      <!-- start: page -->
+      <router-outlet></router-outlet>
+      <!-- end: page -->
+
+    </div>
+  </div>
+
+  <!-- RODAPE -->
+  <hr>
+
+  <div class="row">
+    <div class="col rodape">
+      <p> Ibits &#174; Direitos Reservados </p>
+    </div>
+  </div>
+
+</div>

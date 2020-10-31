@@ -1,0 +1,23 @@
+<h1>{{titulo}}</h1>
+
+<form [formGroup]="produtoForm" novalidate>
+
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" placeholder="Nome do produto" formControlName="nome" />
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Preço</label>
+        <input type="number" class="form-control" id="preco" formControlName="preco" />
+    </div>
+
+    <div class="form-group">
+        <label for="descricao">Descricao</label>
+        <textarea type="text" class="form-control" id="descricao" formControlName="descricao"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="salvar(produtoForm.value)">Salvar</button>
+    <button [routerLink]="['/produto']" class="btn btn-default">Voltar</button>
+
+</form>

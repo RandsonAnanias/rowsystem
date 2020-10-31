@@ -1,0 +1,114 @@
+<div>
+
+  <h1> Contato Prestador de Serviço </h1>
+
+  <form [formGroup]="contatopsForm" novalidate>
+
+    <div class="titulo-underline">
+      <h4>Informação Prestador</h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <br>
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Nome</span>
+            </div>
+            <input type="text" class="form-control  " id="pessoa" formControlName="pessoa" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Tipo Pessoa</span>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" formControlName="tipopessoa">
+              <option [ngValue]="0"> </option>
+              <option [ngValue]="1">Cortador</option>
+              <option [ngValue]="2">Faccionista</option>
+              <option [ngValue]="3">Caseadeira</option>
+              <option [ngValue]="4">Bordador</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="w-100"></div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Ordem Serviço</span>
+            </div>
+            <input type="text" class="form-control" id="os" formControlName="os">
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Os de devoluçao</span>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" formControlName="dvos">
+              <option [ngValue]="0"> </option>
+              <option [ngValue]="1">Sim</option>
+              <option [ngValue]="2">Não</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="titulo-underline">
+      <h4>Informação Contato</h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <br>
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Data contato</span>
+            </div>
+            <input type="date" class="form-control" id="criacao" formControlName="criacao" placeholder="yyyy-MM-dd" min="2018-01-01"
+              max="2049-12-31" required />
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Realizou contato</span>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" formControlName="contatosn">
+              <option [ngValue]="0"> </option>
+              <option [ngValue]="1">Sim</option>
+              <option [ngValue]="2">Não</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="titulo-underline">
+          <h4>Descrição Contato</h4>
+        </div>
+        <textarea type="text" class="form-control" id="descricao" formControlName="descricao"></textarea>
+      </div>
+    </div>
+
+    <hr>
+    <div *ngIf="!visuflag" class="btn-end">
+      <button [routerLink]="['/contatops']" class="btn btn-default">Voltar</button>
+    <button type="submit" class="btn btn-primary" (click)="salvar(contatopsForm.value)">Salvar</button>
+    </div>
+    <div *ngIf="visuflag"  class="btn-end">
+      <button [routerLink]="['/contatops']" class="btn btn-default">Voltar</button>
+    </div>
+  </form>
+</div>
+
+<!-- <pre>{{contatopsForm.value | json}}</pre> -->
+
+
+
+<!-- <input type="date" id="exampleInput" name="input" ng-model="example.value"
+       placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required /> -->

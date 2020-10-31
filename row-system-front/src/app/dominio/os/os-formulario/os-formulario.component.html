@@ -1,0 +1,229 @@
+<div *ngIf="syncFlag">
+  <h1>Produto</h1>
+
+  <form [formGroup]="osForm" novalidate>
+
+    <div class="titulo-underline">
+      <h4>Informações Gerais</h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <br>
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Tipo Modelo</span>
+            </div>
+            <input type="text" class="form-control  " id="tpmodelo" formControlName="tpmodelo" size="35" />
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Modelo</span>
+            </div>
+            <input type="text" class="form-control" id="nomemodelo" formControlName="nomemodelo" />
+          </div>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Matriz Referência</span>
+            </div>
+            <input type="text" class="form-control" id="matrizref" formControlName="matrizref">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Enfesto</span>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" formControlName="enfesto">
+              <option [ngValue]="0">Nenhum</option>
+              <option [ngValue]="1">Único</option>
+              <option [ngValue]="2">Duplo</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Data Criação</span>
+            </div>
+            <input type="date"  class="form-control" id="criacao" formControlName="dtret" placeholder="yyyy-MM-dd" min="2020-10-01"
+              max="2049-12-31" required />
+          </div>
+        </div>
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Data Final</span>
+            </div>
+            <input type="date" class="form-control" id="criacao" formControlName="dtret" placeholder="yyyy-MM-dd" min="2020-10-30"
+              max="2049-12-31" required />
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Status</span>
+            </div>
+            <input type="text" class="form-control" id="status" formControlName="status" placeholder="               Em Andamento" readonly>
+          </div>
+        </div>
+
+        <div class="input-group mb-3 col-12">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile02">
+            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Escolha a
+              Imagem</label>
+          </div>
+          <div class="input-group-append">
+            <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Tecido -->
+    <div class="titulo-underline">
+      <h4>Informações do Tecido</h4>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Tecido</span>
+            </div>
+            <input type="text" class="form-control" size="20" id="tecido" formControlName="tecido" />
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Lagura</span>
+            </div>
+            <input type="text" class="form-control" id="laguratecido" formControlName="laguratecido" />
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">Composção</span>
+              </div>
+              <input type="text" class="form-control" id="composicaotecido" formControlName="composicaotecido">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div>
+    <div class="titulo-underline">
+      <h4>Composição Custo</h4>
+    </div>
+
+    <form [formGroup]="materiaisForm" novalidate>
+      <div class="container">
+        <div class="titulo-underline">
+          <div class="row">
+            <div class="col">
+              <h4>Materiais</h4>
+            </div>
+            <div class="col">
+              <a class="btn" (click)="addmat()">Add Mat</a>
+            </div>
+          </div>
+        </div>
+
+        <div formArrayName="materiais" *ngFor="let materiais of materiaisForm.controls.materiais.controls; let i = index;">
+          <div [formGroupName]="i">
+            <div class="row">
+              <div class="col-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">Item</span>
+                </div>
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" formControlName="item" placeholder="Nome">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" formControlName="medida" placeholder="Medida">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" formControlName="qtd" placeholder="Quantidade">
+              </div>
+              <div class="col-2">
+                <input type="text" class="form-control" formControlName="custo" placeholder="Custo">
+              </div>
+              <button type="button" class="close" aria-label="Close" (click)="removemat(i)"> <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <p> Custo materiais R$ 0.00 </p>
+      </div>
+    </form>
+
+    <form [formGroup]="servicosForm" novalidate>
+      <div class="container">
+        <div class="titulo-underline">
+          <div class="row">
+            <div class="col">
+              <h4>Serviços</h4>
+            </div>
+            <div class="col">
+              <a class="btn" (click)="addservico()">Add Serv</a>
+            </div>
+          </div>
+        </div>
+
+        <div formArrayName="servicos" *ngFor="let servico of servicosForm.controls.servicos.controls; let i = index;">
+          <div [formGroupName]="i">
+            <div class="row">
+              <div class="col-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon3">Serviço</span>
+                </div>
+              </div>
+              <div class="col-5">
+                <input type="text" class="form-control" formControlName="servico" placeholder="Nome">
+              </div>
+              <div class="col-5">
+                <input type="text" class="form-control" formControlName="custo" placeholder="Custo">
+              </div>
+              <button type="button" class="close" aria-label="Close" (click)="removeservico(i)"> <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="w-100"></div>
+          </div>
+        </div>
+        <p> Custo serviço R$ 0.00 </p>
+      </div>
+    </form>
+    <h4> Custo Total R$ 0.00 </h4>
+  </div>
+
+  <hr>
+
+
+    <!-- <button type="submit" class="btn btn-primary" (click)="salvar(osForm.value)">Salvar</button> -->
+    <button [routerLink]="['/os']" class="btn btn-primary">Salvar</button>
+    <button [routerLink]="['/os']" class="btn btn-default">Voltar</button>
+
+</div>
+
+<!-- <pre>{{osForm.value | json}}</pre> -->

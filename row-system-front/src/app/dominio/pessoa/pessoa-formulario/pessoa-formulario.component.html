@@ -1,0 +1,112 @@
+<div>
+
+  <h1> Pessoa </h1>
+
+  <form [formGroup]="pessoaForm" novalidate>
+
+    <div class="titulo-underline">
+      <h4>Social</h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <br>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Nome</span>
+            </div>
+            <input type="text" class="form-control  " id="nome" formControlName="nome" />
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Telefone</span>
+            </div>
+            <input type="text" class="form-control" id="telefone" formControlName="telefone" />
+          </div>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Tipo Pessoa</span>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01" formControlName="tipopessoa">
+              <option [ngValue]="0"> </option>
+              <option [ngValue]="1">Cortador</option>
+              <option [ngValue]="2">Faccionista</option>
+              <option [ngValue]="3">Caseadeira</option>
+              <option [ngValue]="4">Bordador</option>
+              <option [ngValue]="4">Silk</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">CPF/CNPJ</span>
+            </div>
+            <input type="text" class="form-control" id="cpfpj" formControlName="cpfpj">
+          </div>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="email" formControlName="email">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">@email.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tecido -->
+    <div class="titulo-underline">
+      <h4>Local</h4>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">CEP</span>
+            </div>
+            <input type="text" class="form-control" id="cep" formControlName="cep" />
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Edereço</span>
+            </div>
+            <input type="text" class="form-control" id="tpmodelo" formControlName="endereco" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- <button type="submit" class="btn btn-primary" >Salvar</button> -->
+    <div *ngIf="!visuflag" class="btn-end">
+      <button [routerLink]="['/pessoa']" class="btn btn-default">Voltar</button>
+      <button type="submit" class="btn btn-primary" (click)="salvar(pessoaForm.value)">Salvar</button>
+    </div>
+    <div *ngIf="visuflag"  class="btn-end">
+        <button [routerLink]="['/pessoa']" class="btn btn-default">Voltar</button>
+    </div>
+  </form>
+</div>
+
+<!-- <pre>{{pessoaForm.value | json}}</pre> -->

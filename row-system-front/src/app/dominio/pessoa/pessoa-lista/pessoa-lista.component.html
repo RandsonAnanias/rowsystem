@@ -1,0 +1,37 @@
+<h1>Lista de Pessoas</h1>
+
+<button type="button" class="btn btn-primary" id="btn_os" [routerLink]="['/pessoa/incluir']">Adicionar Pessoa</button>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Tipo P.</th>
+      <th scope="col">Operações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let pessoa of pessoas"> -->
+    <tr>
+      <td>00001</td>
+      <td>Paulo</td>
+      <td>Cortador</td>
+      <td>
+        <a [routerLink]="['/pessoa/visualizar/1']">Visualizar</a> |
+        <a [routerLink]="['/pessoa/alterar/1']">Alterar</a> |
+        <a [routerLink]="['/pessoa']">Excluir</a>
+      </td>
+    </tr>
+    <tr>
+      <td>00002</td>
+      <td>Maria Jose</td>
+      <td>Faccionista</td>
+      <td>
+        <a [routerLink]="['/pessoa/visualizar/1']">Visualizar</a> |
+        <a [routerLink]="['/pessoa/alterar/1']">Alterar</a> |
+        <a [routerLink]="['/pessoa']">Excluir</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

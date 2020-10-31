@@ -1,0 +1,27 @@
+<h1>Lista de Coleções</h1>
+
+<button type="button" class="btn btn-primary" id="btn_os" [routerLink]="['/usuario/incluir']">Adicionar Coleções</button>
+
+<table class="table" >
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Criação</th>
+            <th scope="col">Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of colecoes">
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.nome}}</td>
+            <td>{{usuario.ciracao}}</td>
+            <td>
+                <a [routerLink]="['/usuario/visualizar',usuario.id]" >Visualizar</a> |
+                <a [routerLink]="['/usuario/alterar',usuario.id]" >Alterar</a> |
+                <a class="btn" (click)="excluir(usuario.id)">Excluir</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

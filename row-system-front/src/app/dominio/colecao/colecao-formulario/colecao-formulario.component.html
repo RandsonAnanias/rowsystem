@@ -1,0 +1,47 @@
+<div>
+
+  <h1> Coleção </h1>
+
+  <form [formGroup]="colecaoForm" novalidate>
+
+    <div class="titulo-underline">
+      <h4>Informação</h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <br>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Nome</span>
+            </div>
+            <input type="text" class="form-control  " id="nome" formControlName="nome" />
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">Data Criação</span>
+            </div>
+            <input type="date"  class="form-control" id="criacao" formControlName="criacao" placeholder="yyyy-MM-dd" min="2020-10-01" max="2049-12-31"/>
+          </div>
+       </div>
+
+      </div>
+    </div>
+
+    <!-- <button type="submit" class="btn btn-primary" >Salvar</button> -->
+    <button type="submit" class="btn btn-primary" (click)="salvar(colecaoForm.value)">Salvar</button>
+    <button [routerLink]="['/colecao']" class="btn btn-default">Voltar</button>
+
+  </form>
+</div>
+
+<!-- <pre>{{colecaoForm.value | json}}</pre> -->
+
+
+
+<!-- <input type="date" id="exampleInput" name="input" ng-model="example.value"
+       placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required /> -->
