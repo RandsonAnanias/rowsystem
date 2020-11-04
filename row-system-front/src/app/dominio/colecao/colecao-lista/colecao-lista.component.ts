@@ -13,37 +13,29 @@ export class ColecaoListaComponent implements OnInit {
 
   colecoes: Colecao[];
 
-
   constructor(
     private colecaoService: ColecaoService,
-    private router: Router
   ) { }
 
   ngOnInit() {
 
-    this.colecaoService.buscarTodos()
-      .subscribe(resposta => {
-        this.colecoes = resposta
+    this.colecaoService.findAll()
+      .subscribe(colecoes => {
+        this.colecoes = colecoes
+        this.colecoes.forEach((colecao) => {
+          colecao.datacriacaoOrder = colecao.datacriacao.toString().split('/').reverse().join('-');
+        });
       });
 
   }
 
-  excluir(colecaoId: number) {
-    this.colecaoService.excluir(colecaoId)
-      .subscribe(resposta => {
-        console.log("Colecao excluído com sucesso");
-        // retorna para a lista
-        this.colecaoService.buscarTodos()
-          .subscribe(resposta => {
-            this.colecoes = resposta
-          });
-        // this.router.navigate(['/colecao']);
+  onDelete(id: number) {
+    this.colecaoService.deleteById(id)
+      .subscribe(() => {
+        console.log("Coleção deletado com sucesso!");
+        //remove o pais da lista
+        this.colecoes = this.colecoes.filter(colecao => colecao.id !== id);
       });
   }
 
-  selecCoelcao(id: number){
-
-    this.colecaoService.buscarPeloId(id);
-
-  }
 }

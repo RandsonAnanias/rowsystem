@@ -2,55 +2,42 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { catchError, last, map, tap } from 'rxjs/operators';
-
 
 import { Colecao } from './colecao';
+import { environment } from 'src/environments/environment';
 
-@Injectable()
+
+const httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+    })
+};
+
+@Injectable({
+    providedIn: 'root'
+})
+
 export class ColecaoService {
 
-    private URL:string = "http://localhost:8888";
+    url = `${environment.urlApi}/colecao`;
 
     constructor(private http: HttpClient) { }
 
-    buscarTodos(): Observable<Colecao[]> {
-        return this.http
-            .get<Colecao[]>(`${this.URL}/colecao`);
+    findAll(): Observable<Colecao[]> {
+        return this.http.get<Colecao[]>(`${this.url}`);
     }
-
-    buscarPeloId(id: number): Observable<Colecao> {
-        return this.http
-            .get<Colecao>(`${this.URL}/colecao/${id}`)
-            .pipe(
-                map(response => response)
-            );
+    findById(id: number): Observable<Colecao> {
+        return this.http.get<Colecao>(`${this.url}/${id}`);
     }
-
-    salvar(colecao: Colecao): Observable<Colecao> {
-
-        const httpOptions = {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json',
-            })
-        };
-
+    save(colecao: Colecao): Observable<Colecao> {
         if (colecao.id) {
-            return this.http
-                .put<Colecao>(
-                    `${this.URL}/colecao`,
-                    JSON.stringify(colecao),
-                    httpOptions
-                );
+            return this.http.put<Colecao>(`${this.url}`, JSON.stringify(colecao), httpOptions);
         } else {
-            return this.http
-                .post<Colecao>(`${this.URL}/colecao`, JSON.stringify(colecao), httpOptions);
+            return this.http.post<Colecao>(`${this.url}`, JSON.stringify(colecao), httpOptions);
         }
     }
-
-    excluir(id: number): Observable<any> {
-        return this.http
-            .delete(`${this.URL}/colecao/${id}`);
+    deleteById(id: number): Observable<any> {
+        return this.http.delete(`${this.url}/${id}`);
     }
 
 }

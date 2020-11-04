@@ -7,3 +7,7 @@ button{
   border-color: black;
   margin: 6px;
 }
+
+.panel-footer{
+  text-align: right;
+}

@@ -1,7 +1,9 @@
 <div>
+  <h1 class="page-title">{{titulo}}</h1>
+
   <h1> Coleção </h1>
 
-  <form [formGroup]="colecaoForm" novalidate>
+  <form [formGroup]="colecaoForm">
 
     <div class="titulo-underline">
       <h4>Informação</h4>
@@ -12,32 +14,32 @@
 
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Nome</span>
-            </div>
-            <field required="true">
-              <input type="text" class="form-control  " id="nome" formControlName="nome" />
+            <field label="Nome" required="true">
+              <input type="text" class="form-control" formControlName="nome" />
             </field>
-            </div>
+          </div>
         </div>
-        
 
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Data Criação</span>
-            </div>
-            <input type="date"  class="form-control" id="criacao" formControlName="criacao" placeholder="yyyy-MM-dd" min="2020-10-01" max="2049-12-31"/>
+            <field label="Data Criação" required="true">
+              <input type="date" class="form-control" formControlName="datacriacao" placeholder="yyyy-MM-dd"
+                min="2020-10-01" max="2049-12-31" />
+            </field>
           </div>
-       </div>
-
+        </div>
       </div>
     </div>
 
-    <!-- <button type="submit" class="btn btn-primary" >Salvar</button> -->
-    <button type="submit" class="btn btn-primary" (click)="salvar(colecaoForm.value)">Salvar</button>
-    <button [routerLink]="['/colecao']" class="btn btn-default">Voltar</button>
+    <div class="panel-footer">
+
+      <button class="btn btn-primary" [routerLink]="['/colecao/editar', colecao.id]"
+        *ngIf="colecaoForm.disabled">Editar</button>
+
+      <button class="btn btn-success" (click)="onSave(colecaoForm.value)" *ngIf="!colecaoForm.disabled">Salvar</button>
+
+      <button class="btn btn-default ml-2" routerLink="/colecao">Cancelar</button>
+    </div>
 
   </form>
 </div>
-

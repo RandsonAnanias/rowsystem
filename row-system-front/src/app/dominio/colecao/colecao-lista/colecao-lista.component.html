@@ -1,27 +1,29 @@
 <h1>Lista de Coleção</h1>
 
-<button type="button" class="btn btn-primary" id="btn_os" [routerLink]="['/colecao/incluir']">Adicionar Coleçãos</button>
+<button type="button" class="btn btn-primary" id="btn_os" [routerLink]="['/colecao/novo']">Adicionar Coleçãos</button>
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Criação</th>
-      <th scope="col">Operações</th>
+      <th>Nome</th>
+      <th>Criação</th>
+      <th>Operações</th>
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let colecao of colecoes" ondblclick="selecCoelcao(i)"> -->
-    <tr>
-      <td>00001</td>
-      <td>Verão</td>
-      <td>20/10/2020</td>
+    <tr *ngFor="let colecao of colecoes">
       <td>
-        <a [routerLink]="['/os',1]">Produto</a> |
-        <a [routerLink]="['/colecao/visualizar',1]">Visualizar</a> |
-        <a [routerLink]="['/colecao/alterar',1]">Alterar</a> |
-        <a [routerLink]="['/colecao']">Excluir</a>
+        {{ colecao.nome }}
+      </td>
+      <td>
+        {{ colecao.datacriacao | date: 'dd/MM/yyyy'}}
+      </td>
+
+      <td>
+        <a [routerLink]="['/os',colecao.id]">Produto</a> |
+        <a [routerLink]="['/colecao/visualizar', colecao.id ]">Visualizar</a> |
+        <a [routerLink]="['/colecao/editar',colecao.id]">Editar</a> |
+        <a (click)="onDelete(colecao.id)">Excluir</a>
       </td>
     </tr>
   </tbody>

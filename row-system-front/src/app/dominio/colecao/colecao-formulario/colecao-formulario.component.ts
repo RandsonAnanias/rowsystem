@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Validation from '../../core/util/validation';
 
 
 import { Colecao } from '../colecao';
@@ -15,7 +16,7 @@ export class ColecaoFormularioComponent implements OnInit {
 
   colecao: Colecao;
   colecaoForm: FormGroup;
-  valueflag: boolean;
+  titulo: string;
 
 
   constructor(
@@ -29,49 +30,43 @@ export class ColecaoFormularioComponent implements OnInit {
 
     this.colecao = new Colecao();
 
-    this.valueflag = this.route.snapshot.routeConfig.path  != "incluir";
-    /* Reactive Forms */
+    this.colecao.id = this.route.snapshot.params['id'];
+
+    this.titulo = (this.colecao.id) ? 'Editar' : 'Cadastrar';
+
     this.colecaoForm = this.builder.group({
-      id: [],
-      nome: ['', [Validators.required, Validators.maxLength(50)]],
-      criacao: ['', [Validators.required]],
+      id: [null],
+      nome: ['', [Validators.required]],
+      datacriacao: ['', [Validators.required]],
     }, {});
 
-    // Se existir `ID` realiza busca para trazer os dados
-    if (this.valueflag) {
-
-      this.colecao.nome = "Verão";
-      this.colecao.criacao =  new Date() ;
-
-          // Atualiza o formulário com os valores retornados
-          this.colecaoForm.patchValue(this.colecao);
-
-
+    if (this.colecao.id) {
+      this.colecaoService.findById(this.colecao.id)
+        .subscribe(colecao => this.colecaoForm.patchValue(colecao));
     }
-
+    if (this.route.snapshot.url[0].path == 'visualizar') {
+      this.colecaoForm.disable();
+      this.titulo = 'Visualizar';
+    }
   }
 
-  salvar(colecao: Colecao) {
+  onSave(colecao: Colecao) {
+
+    console.log(colecao);
+
     if (this.colecaoForm.invalid) {
-      console.log("Erro no formulário");
-    }
-    else {
-      this.colecaoService.salvar(colecao)
-      .subscribe(response => {
-        console.log("Curso salvo com sucesso");
+      Validation.allFormFields(this.colecaoForm);
+    } else {
 
-        // retorna para a lista
-        this.router.navigate(['/colecao']);
-      },
-      (error) => {
-        console.log("Erro no back-end");
-      });
+      this.colecaoService.save(colecao)
+        .subscribe(() => {
+
+          console.log("Colecao Salvo");
+
+          this.router.navigate(['/colecao']);
+
+        });
     }
   }
-
-  select(event: any) {
-    // this.colecao.tipopessoa = event.target.value;
-    // console.log(this.colecao)
-  }
-
 }
+

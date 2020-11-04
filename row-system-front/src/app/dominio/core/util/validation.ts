@@ -18,4 +18,11 @@ export default class Validation {
             }
         });
     }
+    static backErrors(results: any, formGroup: FormGroup) {
+        if (results.hasOwnProperty('error')) {
+          for (let error of results.error) {
+            formGroup.get(error.field).setErrors({ [error.codeError]: true });
+          }
+        }
+      }
 }
