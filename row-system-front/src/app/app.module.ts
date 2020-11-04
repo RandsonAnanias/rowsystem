@@ -9,6 +9,7 @@ import { AlertModule } from 'ngx-bootstrap';
 import { AppRouting } from './app.routing';
 import { AuthService } from './dominio/usuario/usuario-login/auth.service';
 import { NgFieldModule } from 'ng-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -26,6 +27,8 @@ import { NgFieldModule } from 'ng-field';
     HttpClientModule,
     AlertModule.forRoot(),
     NgFieldModule,
+    ReactiveFormsModule,
+
 
 
 

@@ -1,5 +1,4 @@
 <div>
-
   <h1> Coleção </h1>
 
   <form [formGroup]="colecaoForm" novalidate>
@@ -16,9 +15,12 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon3">Nome</span>
             </div>
-            <input type="text" class="form-control  " id="nome" formControlName="nome" />
-          </div>
+            <field required="true">
+              <input type="text" class="form-control  " id="nome" formControlName="nome" />
+            </field>
+            </div>
         </div>
+        
 
         <div class="col">
           <div class="input-group mb-3">
@@ -39,9 +41,3 @@
   </form>
 </div>
 
-<!-- <pre>{{colecaoForm.value | json}}</pre> -->
-
-
-
-<!-- <input type="date" id="exampleInput" name="input" ng-model="example.value"
-       placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" required /> -->

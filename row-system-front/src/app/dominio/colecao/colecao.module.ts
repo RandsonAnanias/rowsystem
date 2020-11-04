@@ -8,7 +8,7 @@ import { ColecaoRouting } from './colecao.routing';
 import { ColecaoService } from './colecao.service';
 import { ColecaoListaComponent } from './colecao-lista/colecao-lista.component';
 import { ColecaoFormularioComponent } from './colecao-formulario/colecao-formulario.component';
-import { NgFieldModule } from 'ng-field';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { NgFieldModule } from 'ng-field';
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
-        NgFieldModule,
+        CoreModule,
 
 
         // Componente
