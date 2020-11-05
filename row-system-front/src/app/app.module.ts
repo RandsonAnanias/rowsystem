@@ -10,6 +10,7 @@ import { AppRouting } from './app.routing';
 import { AuthService } from './dominio/usuario/usuario-login/auth.service';
 import { NgFieldModule } from 'ng-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './dominio/guards/auth.guard';
 
 
 
@@ -35,7 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     // app
     AppRouting
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

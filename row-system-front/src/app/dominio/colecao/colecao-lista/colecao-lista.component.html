@@ -13,12 +13,11 @@
   <tbody>
     <tr *ngFor="let colecao of colecoes">
       <td>
-        {{ colecao.nome }}
+        {{ colecao.nome }} 
       </td>
-      <td>
+      <td> 
         {{ colecao.datacriacao | date: 'dd/MM/yyyy'}}
       </td>
-
       <td>
         <a [routerLink]="['/os',colecao.id]">Produto</a> |
         <a [routerLink]="['/colecao/visualizar', colecao.id ]">Visualizar</a> |
