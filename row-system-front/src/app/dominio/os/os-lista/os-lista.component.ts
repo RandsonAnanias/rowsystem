@@ -17,41 +17,23 @@ export class OsListaComponent implements OnInit {
     colecao: Colecao;
 
     constructor(
-      private route: ActivatedRoute,
       private osService: OsService,
-      private router: Router
     ){}
 
     ngOnInit() {
-      this.colecao = new Colecao();
 
-      this.colecao.id = this.route.snapshot.params['id'];
+      this.osService.findAll()
+      .subscribe( oss => this.oss = oss);
+    }
+    
 
-      if (this.colecao.id != null) {
-        this.osService.buscarTodosColecao(this.colecao.id)
-          .subscribe(resposta => {
-            this.oss = resposta;
-          });
-      } else {
-        this.osService.buscarTodos()
-      .subscribe(resposta => {
-        this.oss = resposta
+    onDelete(id: number) {
+      this.osService.deleteById(id)
+      .subscribe(() => {
+        console.log("Os deletado!!!");
+        //Remove carro da lista
+        this.oss = this.oss.filter( os => os.id !== id);
       });
-      }
-
-    }
-
-    Adicionar(){
-      this.router.navigate(['/os/incluir/1']);
-    }
-
-    excluir(osId: number) {
-      this.osService.excluir(osId)
-      .subscribe(resposta => {
-        console.log("Os excluído com sucesso");
-        // retorna para a lista
-        this.router.navigate(['/os']);
-      } );
     }
 
 }

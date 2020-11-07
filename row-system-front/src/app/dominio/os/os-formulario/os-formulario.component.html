@@ -1,7 +1,9 @@
-<div *ngIf="syncFlag">
+<!-- < *ngIf="syncFlag"> -->
   <h1>Produto</h1>
 
-  <form [formGroup]="osForm" novalidate>
+<h1 class="page-title">{{ titulo }}</h1>
+
+  <form [formGroup]="osForm">
 
     <div class="titulo-underline">
       <h4>Informações Gerais</h4>
@@ -11,88 +13,76 @@
         <br>
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Tipo Modelo</span>
-            </div>
-            <input type="text" class="form-control  " id="tpmodelo" formControlName="tpmodelo" size="35" />
+             <field required="true">Tipo Modelo
+              <input type="text" class="form-control" formControlName="tpmodelo" size="35" />
+            </field> 
           </div>
         </div>
 
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Modelo</span>
-            </div>
-            <input type="text" class="form-control" id="nomemodelo" formControlName="nomemodelo" />
+            <field required="true">Modelo
+              <input type="text" class="form-control" formControlName="nomemodelo" />
+            </field>
           </div>
         </div>
 
-        <div class="w-100"></div>
+        <!-- <div class="w-100"></div> -->
 
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Matriz Referência</span>
-            </div>
-            <input type="text" class="form-control" id="matrizref" formControlName="matrizref">
+            <field required="true">Matriz Referência
+              <input type="text" class="form-control" formControlName="matrizref" size="35">
+            </field>
           </div>
         </div>
 
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Enfesto</span>
-            </div>
-            <select class="custom-select" id="inputGroupSelect01" formControlName="enfesto">
-              <option [ngValue]="0">Nenhum</option>
-              <option [ngValue]="1">Único</option>
-              <option [ngValue]="2">Duplo</option>
-            </select>
+              <field required="true">Enfesto
+                <select class="form-control" formControlName="enfesto">
+                  <option value="UNICO">Único</option>
+                  <option value="DUPLO">Duplo</option>
+                </select>
+            </field>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Data Criação</span>
-            </div>
-            <input type="date"  class="form-control" id="criacao" formControlName="dtret" placeholder="yyyy-MM-dd" min="2020-10-01"
-              max="2049-12-31" required />
+            <field required="true">Data Criação
+              <input type="date" class="form-control" formControlName="dataInicial" placeholder="yyyy-MM-dd" min="2020-10-01" max="2049-12-31"/>
+            </field>
           </div>
         </div>
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Data Final</span>
-            </div>
-            <input type="date" class="form-control" id="criacao" formControlName="dtret" placeholder="yyyy-MM-dd" min="2020-10-30"
-              max="2049-12-31" required />
+            <field required="true">Data Final
+              <input type="date" class="form-control" formControlName="dataFinal" placeholder="yyyy-MM-dd" min="2020-10-30" max="2049-12-31"/>
+            </field>
           </div>
         </div>
 
         <div class="col">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Status</span>
-            </div>
-            <input type="text" class="form-control" id="status" formControlName="status" placeholder="               Em Andamento" readonly>
+            <field required="true">Status
+              <select class="form-control" formControlName="status">
+                <option value="ANDAMENTO">Em andamento</option>
+                <option value="FINALIZADO">Finalizado</option>
+              </select>
+            </field>
           </div>
         </div>
 
         <div class="input-group mb-3 col-12">
           <div class="custom-file">
+            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Escolha a Imagem</label>
             <input type="file" class="custom-file-input" id="inputGroupFile02">
-            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Escolha a
-              Imagem</label>
-          </div>
-          <div class="input-group-append">
-            <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
           </div>
         </div>
       </div>
     </div>
-
 
     <!-- Tecido -->
     <div class="titulo-underline">
@@ -103,27 +93,24 @@
       <div class="row">
         <div class="col-4">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Tecido</span>
-            </div>
-            <input type="text" class="form-control" size="20" id="tecido" formControlName="tecido" />
+            <field required="true">Tecido
+              <input type="text" class="form-control" size="20" formControlName="tecido"/>
+            </field>
           </div>
         </div>
         <div class="col-4">
           <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">Lagura</span>
-            </div>
-            <input type="text" class="form-control" id="laguratecido" formControlName="laguratecido" />
+            <field required="true">Lagura
+              <input type="text" class="form-control" formControlName="laguratecido" digit/>
+            </field>
           </div>
         </div>
         <div class="col-4">
           <div class="form-group">
             <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon3">Composção</span>
-              </div>
-              <input type="text" class="form-control" id="composicaotecido" formControlName="composicaotecido">
+              <field required="true">Composição
+                <input type="text" class="form-control" formControlName="composicaotecido">
+              </field>
             </div>
           </div>
         </div>
@@ -131,12 +118,12 @@
     </div>
   </form>
 
-  <div>
+  <!-- <div>
     <div class="titulo-underline">
       <h4>Composição Custo</h4>
-    </div>
+    </div> -->
 
-    <form [formGroup]="materiaisForm" novalidate>
+    <!-- <form [formGroup]="materiaisForm" novalidate>
       <div class="container">
         <div class="titulo-underline">
           <div class="row">
@@ -153,21 +140,19 @@
           <div [formGroupName]="i">
             <div class="row">
               <div class="col-1">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon3">Item</span>
-                </div>
+                
               </div>
-              <div class="col-2">
-                <input type="text" class="form-control" formControlName="item" placeholder="Nome">
+              <div class="col-2">Nome
+                <input type="text" class="form-control" formControlName="item" >
               </div>
-              <div class="col-2">
-                <input type="text" class="form-control" formControlName="medida" placeholder="Medida">
+              <div class="col-2">Medida
+                <input type="text" class="form-control" formControlName="medida">
               </div>
-              <div class="col-2">
-                <input type="text" class="form-control" formControlName="qtd" placeholder="Quantidade">
+              <div class="col-2">Quantidade
+                <input type="text" class="form-control" formControlName="qtd">
               </div>
-              <div class="col-2">
-                <input type="text" class="form-control" formControlName="custo" placeholder="Custo">
+              <div class="col-2">Custo
+                <input type="text" class="form-control" formControlName="custo">
               </div>
               <button type="button" class="close" aria-label="Close" (click)="removemat(i)"> <span aria-hidden="true">&times;</span>
               </button>
@@ -176,9 +161,9 @@
         </div>
         <p> Custo materiais R$ 0.00 </p>
       </div>
-    </form>
+    </form> -->
 
-    <form [formGroup]="servicosForm" novalidate>
+    <!-- <form [formGroup]="servicosForm" novalidate>
       <div class="container">
         <div class="titulo-underline">
           <div class="row">
@@ -215,15 +200,28 @@
       </div>
     </form>
     <h4> Custo Total R$ 0.00 </h4>
+  </div> -->
+
+  <div class="panel-footer">
+
+    <button class="btn btn-primary"
+      [routerLink]="['/os/editar', os.id]"
+      *ngIf="osForm.disabled">
+      Editar
+    </button>
+
+    <button class="btn btn-success"
+      (click)="onSave(osForm.value)"
+      *ngIf="!osForm.disabled">
+      Salvar
+    </button>
+
+    <button class="btn btn-default ml-2"
+      routerLink='/os'>
+      Cancelar
+    </button>
   </div>
+ <!-- fim panel-->
 
-  <hr>
-
-
-    <!-- <button type="submit" class="btn btn-primary" (click)="salvar(osForm.value)">Salvar</button> -->
-    <button [routerLink]="['/os']" class="btn btn-primary">Salvar</button>
-    <button [routerLink]="['/os']" class="btn btn-default">Voltar</button>
-
-</div>
 
 <!-- <pre>{{osForm.value | json}}</pre> -->

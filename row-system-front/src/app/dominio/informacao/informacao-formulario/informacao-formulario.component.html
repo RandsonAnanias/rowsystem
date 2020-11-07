@@ -66,7 +66,7 @@
     </div>
     <div class="container">
 
-      <div formArrayName="informacoesc" *ngFor="let informacoesc of informacaocForm.controls.informacoesc.controls; let i = index;">
+      <div formArrayName="informacoesc" *ngFor="let informacoesc of informacaocForm.controls.informacoesc; let i = index;">
         <div [formGroupName]="i">
           <div class="row">
             <div class="col">
@@ -156,7 +156,7 @@
 
   <hr>
   <!-- <button type="submit" class="btn btn-primary" >Salvar</button> -->
-  <button type="submit" class="btn btn-primary" (click)="salvar(informacaoForm.value)">Salvar</button>
+  <button type="submit" class="btn btn-primary" (click)="salvar(informacaocForm.value)">Salvar</button>
   <button [routerLink]="['/informacao']" class="btn btn-default">Voltar</button>
 
 

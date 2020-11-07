@@ -13,3 +13,11 @@ h1{
 #tr_{
   border-radius: 10px;
 }
+
+thead th {
+  border-bottom: 1px solid #333; 
+  text-align: center; 
+}
+tbody td{
+  text-align: center;
+}

@@ -1,44 +1,43 @@
 <h1>Lista de Produtos: Verão</h1>
 
-<button type="button" class="btn btn-primary" id="btn_os" (click)="Adicionar()">Adicionar Produto</button>
-<!-- <button type="button" class="btn btn-danger" id="btn_os" [routerLink]="['/os/incluir']">Devolver OS</button>
-<button type="button" class="btn btn-success" id="btn_os" [routerLink]="['/os/incluir']">Finalizar OS</button> -->
+
+<!-- <button type="button" class="btn btn-primary" id="btn_os" (click)="Adicionar()">Adicionar Produto</button> -->
+
+<button class="btn btn-primary m-3" [routerLink]="['/os/novo']">
+  Adicionar Produto
+</button>
+
+
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Coleção</th>
-      <th scope="col">Produto</th>
-      <th scope="col">Modelo</th>
-      <th scope="col">Enfesto</th>
-      <th scope="col">Data Criação</th>
-      <th scope="col">Status</th>
-      <th scope="col">Operações</th>
+      <!-- <th>Coleção</th> -->
+      <th>Produto</th>
+      <th>Modelo</th>
+      <th>Enfesto</th>
+      <th>Data Criação</th>
+      <th>Status</th>
+      <th>Operações</th>
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let ordemservico of ordemservicos" ondblclick="myFunction()" id='demo'> -->
-      <tr>
-      <td>00001</td>
-      <td>00001</td>
-      <td>Calça Verão</td>
-      <td>Único</td>
-      <td>25/11/2018</td>
-      <td>Em Andamento</td>
+    <tr *ngFor="let os of oss">
+    
+      <!-- <td>{{ colecao.id }}</td>  -->
+      <td>{{ os.id }}</td>
+      <td>{{ os.nomemodelo }}</td>
+      <td>{{ os.enfesto }}</td>
+      <td>{{ os.dataInicial | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ os.status }}</td>
       <td>
-        <a [routerLink]="['/os/visualizar/1']">Visualizar</a> |
-        <a [routerLink]="['/os/alterar/1']">Alterar</a> |
-        <a [routerLink]="['/os/1']">Excluir</a>|
-        <a [routerLink]="['/os']">Finalizar</a>|
-        <a [routerLink]="['/informacao']">OS</a>|
-        <a [routerLink]="['/contatops']">Contato</a>
-      </td>
+        <a [routerLink]="['/os/visualizar', os.id]">Visualizar</a> |
+        <a [routerLink]="['/os/editar', os.id]">Editar</a> |
+        <a (click)="onDelete(os.id)">Excluir</a>
+        <!-- <a [routerLink]="['/os']">Finalizar</a>| -->
+        <!-- <a [routerLink]="['/informacao']">OS</a>|
+        <a [routerLink]="['/contatops']">Contato</a> -->
     </tr>
   </tbody>
 </table>
 <button type="button" class="btn btn-default" id="btn_os" [routerLink]="['/colecao']">Voltar</button>
-<script>
-  function myFunction() {
-    document.getElementById("demo").style.color = "blue";
-  }
-</script>

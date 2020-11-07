@@ -8,6 +8,9 @@ import { OsRouting } from './os.routing';
 import { OsService } from './os.service';
 import { OsListaComponent } from './os-lista/os-lista.component';
 import { OsFormularioComponent } from './os-formulario/os-formulario.component';
+import { CoreModule } from '../core/core.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
 
@@ -23,6 +26,11 @@ import { OsFormularioComponent } from './os-formulario/os-formulario.component';
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
+        CoreModule,
+        NgSelectModule,
+        RxReactiveFormsModule,  
+        
+        
 
         // Componente
         OsRouting

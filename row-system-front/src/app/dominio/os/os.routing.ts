@@ -7,11 +7,11 @@ import { OsFormularioComponent } from './os-formulario/os-formulario.component';
 
 const osRoutes: Routes = [
     { path: '', component: OsListaComponent},
-    { path: ':id', component: OsListaComponent},
+    // { path: ':id', component: OsListaComponent},
+    { path: 'novo', component: OsFormularioComponent},
+    { path: 'editar/:id', component: OsFormularioComponent},
     { path: 'visualizar/:id', component: OsFormularioComponent},
-    { path: 'incluir/:id', component: OsFormularioComponent},
-    { path: 'alterar/:id', component: OsFormularioComponent},
-    { path: 'devolver/:id', component: OsFormularioComponent}
+    // { path: 'devolver/:id', component: OsFormularioComponent}
   ];
 
 

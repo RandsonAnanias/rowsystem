@@ -5,10 +5,21 @@ export class Os{
   tpmodelo: string;
   nomemodelo: string;
   matrizref: string;
-  enfesto: number;
+  enfesto: string;
+  dataInicial: Date;
+  dataFinal: Date;
+  status: string;
   tecido: string;
   laguratecido: string;
   composicaotecido: string;
   colecao: Colecao;
-  status: string;
+}
+
+export enum StatusEnum {
+  ANDAMENTO,
+  FINALIZADO
+}
+export enum EnfestoEnum {
+  UNICO,
+  DUPLO
 }

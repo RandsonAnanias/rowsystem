@@ -9,6 +9,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import br.com.unievangelica.ftt.domain.garagem.Garagem;
+import br.com.unievangelica.ftt.domain.os.Os;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -33,6 +35,19 @@ public class Colecao extends AbstractEntity{
     @Temporal(value = TemporalType.DATE)
     @Column(name = "datacriacao")
     private Date datacriacao;
+
+
+    public List<Os> getOs() {
+        return os;
+    }
+
+    public void setOs(List<Os> os) {
+        this.os = os;
+    }
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "colecao")
+    private List<Os> os;
 
     public String getNome() {
         return nome;

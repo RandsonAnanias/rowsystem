@@ -5,6 +5,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Nome</th>
       <th>Criação</th>
       <th>Operações</th>
@@ -13,13 +14,16 @@
   <tbody>
     <tr *ngFor="let colecao of colecoes">
       <td>
+        {{ colecao.id }} 
+      </td>
+      <td>
         {{ colecao.nome }} 
       </td>
       <td> 
         {{ colecao.datacriacao | date: 'dd/MM/yyyy'}}
       </td>
       <td>
-        <a [routerLink]="['/os',colecao.id]">Produto</a> |
+        <a [routerLink]="['/os']">Produto</a> |
         <a [routerLink]="['/colecao/visualizar', colecao.id ]">Visualizar</a> |
         <a [routerLink]="['/colecao/editar',colecao.id]">Editar</a> |
         <a (click)="onDelete(colecao.id)">Excluir</a>
