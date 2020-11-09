@@ -71,7 +71,7 @@ export class OsFormularioComponent implements OnInit {
       dataFinal: ['',[Validators.required]],
       status: ['',[Validators.required]],
       tecido: ['',[Validators.required]],
-      laguratecido: ['',[Validators.required], RxwebValidators.digit()],
+      laguratecido: ['',[Validators.required]],
       composicaotecido: ['',[Validators.required]]
 
     }, {});
