@@ -16,7 +16,7 @@ export class AuthService {
   ) { }
 
   login(usuario: Usuario){
-      if(usuario.usuario === 'viviane.batista@unievangelica.edu.br' && usuario.senha === '123456'){
+      if(usuario.usuario === 'teste' && usuario.senha === '123456'){
 
         this.usuarioAutenticado = true;
         this.mostrarMenuEmitter.emit(true);
