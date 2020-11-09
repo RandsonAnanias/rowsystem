@@ -9,6 +9,7 @@ import { UsuarioService } from './usuario.service';
 import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
 import { UsuarioFormularioComponent } from './usuario-formulario/usuario-formulario.component';
 import { UsuarioLoginComponent } from './usuario-login/usuario-login.component';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -26,6 +27,7 @@ import { UsuarioLoginComponent } from './usuario-login/usuario-login.component';
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
+        CoreModule,
 
         // Componente
         UsuarioRouting

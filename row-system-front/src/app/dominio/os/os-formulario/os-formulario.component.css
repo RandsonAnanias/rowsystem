@@ -18,5 +18,18 @@ button{
 .select{
 width:230px;  /* Tamanho final do select */  
   
+}
+
+.teste{
+  font-weight: bolder;
+}
+
+.panel-footer{
+  text-align: right;
+
+}
+.lbenfesto{
+  width: 100px;
+  font-weight: bolder;
 
 }

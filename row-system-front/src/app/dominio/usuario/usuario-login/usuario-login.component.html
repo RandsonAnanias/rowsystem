@@ -10,20 +10,18 @@
         <div class="row">
           <div class="col">
             <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon3">Usuário</span>
-              </div>
-              <input [(ngModel)]="usuario.usuario" type="text" class="form-control  " id="usuario" formControlName="usuario" />
+              <field class="teste" label="Usuário" required="true">
+                <input  [(ngModel)]="usuario.usuario" type="text" class="form-control  " id="usuario" formControlName="usuario" />
+              </field>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon3">Senha</span>
-              </div>
-              <input [(ngModel)]="usuario.senha"  type="password" class="form-control" id="senha" formControlName="senha" />
+              <field class="teste" label="Senha" required="true">
+                <input [(ngModel)]="usuario.senha" type="password" class="form-control" id="senha" formControlName="senha" />
+              </field>
             </div>
           </div>
         </div>

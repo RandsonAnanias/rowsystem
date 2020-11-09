@@ -13,7 +13,7 @@
         <br>
         <div class="col">
           <div class="input-group mb-3">
-             <field required="true">Tipo Modelo
+             <field class="teste" label="Tipo Modelo" required="true">
               <input type="text" class="form-control" formControlName="tpmodelo" size="35" />
             </field> 
           </div>
@@ -21,7 +21,7 @@
 
         <div class="col">
           <div class="input-group mb-3">
-            <field required="true">Modelo
+            <field class="teste" label="Modelo" required="true">
               <input type="text" class="form-control" formControlName="nomemodelo" />
             </field>
           </div>
@@ -31,7 +31,7 @@
 
         <div class="col">
           <div class="input-group mb-3">
-            <field required="true">Matriz Referência
+            <field class="teste" label="Matriz Referência" required="true">
               <input type="text" class="form-control" formControlName="matrizref" size="35">
             </field>
           </div>
@@ -39,7 +39,7 @@
 
         <div class="col">
           <div class="input-group mb-3">
-              <field required="true">Enfesto
+              <field label="Enfesto" class="lbenfesto" required="true">
                 <select class="form-control" formControlName="enfesto">
                   <option value="UNICO">Único</option>
                   <option value="DUPLO">Duplo</option>
@@ -51,14 +51,14 @@
       <div class="row">
         <div class="col">
           <div class="input-group mb-3">
-            <field required="true">Data Criação
+            <field class="teste" label="Data Criação" required="true">
               <input type="date" class="form-control" formControlName="dataInicial" placeholder="yyyy-MM-dd" min="2020-10-01" max="2049-12-31"/>
             </field>
           </div>
         </div>
         <div class="col">
           <div class="input-group mb-3">
-            <field required="true">Data Final
+            <field class="teste" label="Data Final" required="true">
               <input type="date" class="form-control" formControlName="dataFinal" placeholder="yyyy-MM-dd" min="2020-10-30" max="2049-12-31"/>
             </field>
           </div>
@@ -66,7 +66,7 @@
 
         <div class="col">
           <div class="input-group mb-3">
-            <field required="true">Status
+            <field class="teste" label="Status" required="true">
               <select class="form-control" formControlName="status">
                 <option value="ANDAMENTO">Em andamento</option>
                 <option value="FINALIZADO">Finalizado</option>
@@ -77,7 +77,7 @@
 
         <div class="input-group mb-3 col-12">
           <div class="custom-file">
-            <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Escolha a Imagem</label>
+            <label class="teste" class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Escolha a Imagem</label>
             <input type="file" class="custom-file-input" id="inputGroupFile02">
           </div>
         </div>
@@ -93,22 +93,22 @@
       <div class="row">
         <div class="col-4">
           <div class="input-group mb-3">
-            <field required="true">Tecido
+            <field class="teste" label="Tecido" required="true">
               <input type="text" class="form-control" size="20" formControlName="tecido"/>
             </field>
           </div>
         </div>
         <div class="col-4">
           <div class="input-group mb-3">
-            <field required="true">Lagura
-              <input type="text" class="form-control" formControlName="laguratecido" digit/>
+            <field class="teste" label="Lagura" required="true">
+              <input  type="text" class="form-control" formControlName="laguratecido" digit/>
             </field>
           </div>
         </div>
         <div class="col-4">
           <div class="form-group">
             <div class="input-group mb-3">
-              <field required="true">Composição
+              <field class="teste" label="Composição" required="true">
                 <input type="text" class="form-control" formControlName="composicaotecido">
               </field>
             </div>
