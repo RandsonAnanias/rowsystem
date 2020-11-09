@@ -1,2 +1,2 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* br.com.unievangelica.ftt
+web: java -Dspring.profiles.active=prod $JAVA_OPTS -jar target/*.jar
 
