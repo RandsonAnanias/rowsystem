@@ -3,8 +3,8 @@
 
 
   <form [formGroup]="usuarioForm" novalidate>
-    <div class="card border-primary bg-transparent mb-3 text-center" style="max-width: 18rem;">
-      <div class="card-header border-primary">Row System </div>
+    <div class="card  bg-transparent mb-3 text-center" style="max-width: 18rem; border-color:brown;">
+      <div class="card-header" style="border-color:brown;"><b>Row System</b></div>
       <div class="card-body">
         <h5 class="card-title text-center">Login</h5>
         <div class="row">
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <div class="card-footer bg-transparent border-primary smb-3 ">
+      <div class="card-footer bg-transparent smb-3" style="border-color:brown;" >
         <button type="submit" class="btn btn-default" (click)="login(usuarioForm.value)">LOG IN</button>
       </div>
     </div>
