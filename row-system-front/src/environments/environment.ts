@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlApi: 'http://localhost:8080/api'
+  urlApi: 'https://guarded-fjord-15068.herokuapp.com/api'
 
 };
 
